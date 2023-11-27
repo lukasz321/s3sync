@@ -1,0 +1,14 @@
+[Unit]
+Description=[s3sync] Sync Files to S3
+After=network.target
+
+[Service]
+Type=simple
+User=insert_target_user
+EnvironmentFile=/home/insert_target_user/.s3sync.aws/credentials
+ExecStart=/home/insert_target_user/.s3sync/bin/python -um s3sync
+Restart=always
+RestartSec=180
+
+[Install]
+WantedBy=multi-user.target

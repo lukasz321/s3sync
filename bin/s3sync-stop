@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo systemctl disable s3sync
+sudo systemctl stop s3sync

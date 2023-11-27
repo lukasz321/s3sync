@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/home/$USER/.s3sync/bin/python -um s3sync.interactive
