@@ -58,7 +58,7 @@ if __name__ == "__main__":
         with open(WATCHLIST_PATH, "r+") as f:
             files: List = [pathlib.Path(l.replace("\n", "")) for l in f.readlines()]
     except FileNotFoundError:
-        with open(WATCHLIST_PATH, "w+") as f:
+        with open(WATCHLIST_PATH, "a+") as f:
             pass
 
         files = []
