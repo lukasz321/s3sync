@@ -54,8 +54,14 @@ class EventHandler(FileSystemEventHandler):
 
 
 if __name__ == "__main__":
-    with open(WATCHLIST_PATH, "r+") as f:
-        files: List = [pathlib.Path(l.replace("\n", "")) for l in f.readlines()]
+    try:
+        with open(WATCHLIST_PATH, "r+") as f:
+            files: List = [pathlib.Path(l.replace("\n", "")) for l in f.readlines()]
+    except FileNotFoundError:
+        with open(WATCHLIST_PATH, "w+") as f:
+            pass
+
+        files = []
 
     event_handler = EventHandler()
     observer = Observer()
