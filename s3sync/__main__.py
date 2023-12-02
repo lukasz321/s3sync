@@ -76,10 +76,13 @@ if __name__ == "__main__":
             print(f"Skipping {file} as it not a file!")
             continue
 
-        num_watching = +1
+        print(f"Observing {file}")
+        num_watching += 1
         observer.schedule(event_handler, file, recursive=False)
+
+    if num_watching >= 1:
+        observer.start()
     
-    observer.start()
     print(f"Observing {num_watching} files.")
 
     try:
