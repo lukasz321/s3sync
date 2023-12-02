@@ -24,7 +24,7 @@ install_python_package() {
     source ".venv/bin/activate"
 
     print "info" "Installing requirements..." 1
-    pip3 install -r requirements.txt > /dev/null
+    pip3 install -r requirements.txt | sed 's/^/       /'
     print "inline-ok" "Installing requirements..." 1
 
     print "info" "Installing the python3 module..." 1
@@ -96,9 +96,9 @@ print() {
     fi
     
     if [[ ! "$type" == *"inline"* ]]; then
-        printf "\n${indent}${insert} ${msg}"
+        printf "${indent}${insert} ${msg}\n"
     else
-        printf "\\r\\033[K${indent}${insert} ${msg}"
+        printf "\\r\\033[K${indent}${insert} ${msg}\n"
     fi 
 }
 

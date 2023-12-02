@@ -78,8 +78,8 @@ if __name__ == "__main__":
 
         num_watching = +1
         observer.schedule(event_handler, file, recursive=False)
-        observer.start()
-
+    
+    observer.start()
     print(f"Observing {num_watching} files.")
 
     try:
